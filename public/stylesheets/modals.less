@@ -1,0 +1,53 @@
+//Modals
+
+.modal-content {
+  background-color : @secondary-blue;
+  color : @light-font;
+  .modal-header, .modal-footer {
+    border : none;
+  }
+  .modal-header {
+    text-align: center;
+
+    //working but not working
+    .x {
+      color : @light-font;
+    }
+
+    h4 {
+      font-size : 36px;
+    }
+  }
+  .modal-body {
+    font-size: 16px;
+
+    .row {
+      .flex-display();
+      .flex-wrap(wrap);
+      .align-items(center);
+      .justify-content(space-around);
+    }
+  }
+
+  .form-horizontal {
+    .has-feedback {
+      .form-control-feedback {
+        right : 0px;
+      }
+    }
+  }
+
+  textarea.description {
+    height : 110px;
+  }
+}
+
+@media (max-width: 565px) {
+  .modal-content {
+    .modal-body {
+      .row {
+        .justify-content(center);
+      }
+    }
+  }
+}

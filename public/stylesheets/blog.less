@@ -1,0 +1,252 @@
+.blog-list {
+    .flex-display();
+    .flex-wrap(wrap);
+    .justify-content(flex-start);
+}
+
+@blog-header-color : @light-font;
+@blog-text-color   : @steel-lightest;
+@extra-color       : @light-font;
+@post-bg-color     : @steel-darkest;
+
+.categories {
+    li {
+        display: inline-block;
+        text-transform: uppercase;
+        color: @blue;
+        font-size : 16px;
+        font-weight: 600;
+        margin: 0 5px;
+        cursor : pointer;
+
+        &:hover {
+            color : @dark-blue;
+        }
+
+        &:first-child {
+            margin-left : 0;
+        }
+
+        &.selected {
+            color : @dark-blue;
+        }
+    }
+}
+
+.grid-post {
+
+    background  : @post-bg-color;
+    font-weight : 300;
+
+    .post-head,
+    .post-body,
+    .post-extras {
+        padding     : 12px;
+        margin-left : 0;
+    }
+
+    img {
+        max-width : 100%;
+        height    : auto;
+    }
+
+
+    .post-author,
+    .post-date {
+        font-style : italic;
+        color      : @blog-header-color;
+    }
+
+    .post-head {
+        margin-bottom  : 0;
+        padding-top    : 24px;
+        padding-bottom : 0;
+        position       : relative;
+        text-align     : center;
+    }
+
+    .post {
+        margin-bottom : 24px;
+        position      : relative;
+        //display: inline-block; // will make bottom fixed
+    }
+
+    .post-title {
+        padding-top : 0;
+        font-size   : 24px;
+        margin-bottom: 0;
+        a {
+            color: @blog-header-color;
+            &:hover {
+                color: darken(@blog-header-color, 10%);
+            }
+        }
+    }
+
+    .post-showinfo {
+        margin-left: 0;
+
+        .post-head {
+            padding-top : 12px;
+            z-index     : 2;
+            position    : relative;
+            margin-left : 8px;
+             .no-title {
+                margin-bottom: 0;
+            }
+        }
+
+        .post-icon {
+            top            : -24px;
+            left           : 50%;
+            margin-left    : -30px;
+            margin-right   : 0;
+            z-index        : 100;
+            
+            display        : block;
+            position       : absolute;
+            font-size      : 14px;
+            text-transform : uppercase;
+        }
+
+        .post-extras {
+            margin-top     : 12px;
+            margin-left    : 0;
+            margin-bottom  : 24px;
+            padding-top    : 12px;
+            padding-bottom : 12px;
+            height         : 50px;
+            text-align     : center;
+            color          : @extra-color;
+            
+            font-size      : 18px;
+            position       : relative;
+            a {
+                color: @extra-color;
+                cursor : pointer;
+                &:hover {
+                    color: darken(@extra-color, 10%);
+                }
+            }
+
+            &:before {
+                position    : absolute;
+                content     : "";
+                height      : 1px;
+                width       : 45%;
+                left        : 45%;
+                margin-left : -18%;
+                top         : 0;
+                background  : @extra-color;
+            }
+            &:after {
+                display: none;
+            }
+            a {
+                display       : inline-block;
+                padding-right : 5px;
+                &:last-child {
+                    padding-right: 0;
+                }
+            }
+
+            &.bordered {
+                position: relative;
+                &:after {
+                    content     : "";
+                    position    : absolute;
+                    left        : 50%;
+                    bottom      : 0px;
+                    width       : 140px;
+                    height      : 2px;
+                    margin-left : -70px;
+                }
+            }
+
+            .post-comments {
+                font-size: 14px;
+            }
+        }
+
+        .post-body {
+            position      : relative;
+            margin-left   : 8px;
+            margin-bottom : 0;
+            p {
+                color : @blog-text-color;
+            }
+            .more-link {
+                display : block;
+                color   : @extra-color;
+                &:hover {
+                    color: darken(@extra-color, 10%);
+                }
+            }
+        }
+
+        .post-media {
+            padding-top   : 48px;
+            background    : @steel-darker;
+            margin-bottom : 0px;
+            max-height    : 200px;
+            overflow-y    : hidden;
+            cursor        : pointer;
+            &.overlay:hover {
+                background: @steel-dark;
+                .transition(all 0.2s);
+                img {
+                    -webkit-filter : grayscale(1);
+                    filter         : grayscale(1);
+                    .transition(all 0.2s);
+                }
+            }
+            //Figure out how to get overlay working
+            /*.overlay {
+                z-index: 5;
+                width: 100%;
+                height: 100%;
+                background: transparent;
+                .transition(background 0.2s);
+                &:hover {
+                    .transition(background 0.2s);
+                    background: rgba(0,0,0,0.07);
+                }
+            }*/
+            .feature-image {
+                display    : block;
+                margin-top : -48px;
+            }
+        }
+    }
+}
+
+/* RWD for blog */
+@media (max-width: 1000px) {
+    .grid-post .post-showinfo {
+        .post-head,
+        .post-body,
+        .post-extras {
+            margin-left: 0;
+        }
+        .post-head {
+            padding-top: 30px;
+            z-index: 2;
+        }
+        .post-media {
+            margin-bottom: 0;
+        }
+        .post-icon {
+            top          : -20px;
+            left         : 50%;
+            margin-left  : -20px;
+            margin-right : 0;
+            z-index      : 100;
+        }
+    }
+}
+
+@media (max-width: 700px) {
+    .blog-list {
+        margin-top: 25px;
+    }
+}

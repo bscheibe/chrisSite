@@ -1,0 +1,308 @@
+/* Top Bar Styling */
+@scroll-transition : 0.5s;
+@bg-color          : @blue;
+@text-color        : @light-font;
+
+
+#masthead {
+  .transition(all 0.3s);
+}
+
+.navbar {
+  background-color : @bg-color;
+  border           : none;
+  min-height       : 90px;
+  text-shadow      : none;
+  margin-bottom    : 0;
+  z-index          : 1000;
+  .border-radius(0);
+  .transition(all 0.3s);
+
+  &.navbar-scrolled {
+    min-height: 70px;
+    .box-shadow(0px 4px 0px rgba(26, 134, 160, 0.7));
+    .navbar-nav > li > a {
+      @padding-top : 30px;
+      @padding-bottom : 23px;
+
+       padding-top: @padding-top;
+       padding-bottom: @padding-bottom;
+
+       .transition(all @scroll-transition);
+    }
+    .navbar-brand {
+      @height : 70px; 
+
+      line-height : @height;
+      height      : @height;
+
+      .transition(all @scroll-transition);
+    }
+    .navbar-toggle {
+      @vertical-margin : 18px;
+
+      margin-top    : @vertical-margin;
+      margin-bottom : @vertical-margin;
+      .transition(all @scroll-transition);
+    }
+    .small-header-links {
+      .transition(all @scroll-transition);
+      top : 5px;
+    }
+  }
+
+  &.navbar-default {
+    .navbar-nav {
+        &.navbar-right {
+          &:last-child {
+            margin-right: 35px;
+          }
+        }
+
+        & > .open > a {
+          color : @white;
+          background-color : @blue;
+        }
+
+        & > li > a:focus {
+          color : @white;
+        }
+
+        & > li > .dropdown-menu {
+          margin-top: -25px;
+          margin-right : 10px;
+          background: @dark-blue;
+          border : 1px solid fade(@darker-blue, 50%);
+          .border-radius(6px);
+          .transition(all 0.3s);
+
+          .divider {
+            background-color: fade(@darker-blue, 50%);
+          }
+
+          & > li > a {
+            color : @white;
+            .transition(background-color 0.2s);
+
+            &:hover, &:focus {
+              background-color : @darker-blue;
+              .transition(background-color 0.2s);
+            }
+          }
+        }
+    }
+  }
+
+  .navbar-collapse {
+    border-color: lighten(@grey, 0.5%);
+  }
+
+  .navbar-toggle {
+    .icon-bar {
+        background-color: @text-color;
+        .box-shadow(none);
+    }
+    &:hover, &:focus {
+      background-color: @bg-color;
+    }
+  }
+
+  .navbar-nav > li > a {
+    @padding-top: 40px;
+    @padding-bottom : 33px;
+
+    color          : @text-color;
+    font-size      : 16px;
+    padding-top    : @padding-top;
+    padding-bottom : @padding-bottom;
+    text-shadow    : none;
+    font-style     : normal;
+    font-weight    : 400;
+    position       : relative;
+    .transition(all @scroll-transition);
+    &:hover {
+      color: @text-color;
+    }
+  }
+
+  .nav>li>a:before {
+    @align : 20px;
+
+    opacity          : 0;
+    content          : "";
+    position         : absolute;
+    background-color : @text-color;
+    left             : @align;
+    right            : @align;
+    height           : 2px;
+    bottom           : 25%;
+    .transition(all 0.2s);
+  }
+
+  .nav>li>a.on:before,
+  .nav>li>a:hover:before {
+      opacity: 1;
+  }
+  .nav>li>a:focus {
+      outline: none;
+  }
+
+  .nav>.active>a,
+   #masthead .nav>.active>a:hover,
+  #masthead .nav>.active>a:focus {
+      .box-shadow(none);
+      background-color: transparent;
+  }
+
+  .navbar-brand {
+    @height: 90px;
+
+     padding     : 0;
+     line-height : @height;
+     height      : @height;
+     .transition(all @scroll-transition);
+     img {
+        vertical-align: middle;
+        max-height: 100%
+     }
+  }
+
+  .navbar-toggle .icon-bar {
+    position    : absolute;
+    left        : 50%;
+    margin-left : -11px;
+    margin-top  : 0 !important;
+    .transform(rotate(0deg));
+    .transition(all 0.2s);
+    .transform-origin(50% 50% 50%);
+  }
+
+  .navbar-toggle {
+    @vertical-margin : 28px;
+
+    width         : 44px;
+    height        : 34px;
+    margin-top    : @vertical-margin;
+    margin-bottom : @vertical-margin;
+
+    background : none;  
+    border     : none;
+    .border-radius(0);
+    .box-shadow(none);
+
+    .transition(all @scroll-transition);
+    &.collapsed {
+      .icon-bar {
+        &:nth-child(2) {
+          top: 10px;
+        }
+        &:nth-child(3) {
+          opacity : 1;
+          top     : 46%
+        }
+        &:nth-child(4) {
+          top: 22px;
+        }
+      }
+    }
+    &:not(.collapsed) {
+      .icon-bar {
+        top: 50%;
+        &:nth-child(2) {
+          top: 50%;
+          .transform(rotate(45deg));
+        }
+        &:nth-child(3) {
+           opacity: 0;
+        }
+        &:nth-child(4) {
+          .transform(rotate(-45deg));
+        }
+      }
+    }
+  }
+
+  .small-header-links {
+    font-size : 12px;
+    position  : fixed;
+    top       : 10px;
+    right     : 65px;
+    .transition(all @scroll-transition);
+    a {
+      color: @light-font;
+      &:hover {
+        color: darken(@light-font, 10%);
+      }
+    }
+    .login {
+      border      : 1px solid @light-font;
+      padding     : 1px 7px 3px 7px;
+      margin-left : 12px;
+      .transition(all @scroll-transition);
+      .border-radius(2px);
+      &:hover {
+        border-color: darken(@light-font, 10%);
+        .transition(all @scroll-transition);
+      }
+    }
+    .help {
+      //start writing here
+    }
+  }
+}
+
+.dropdown-menu {
+  .divider {
+    background-color: @grey;
+  }
+}
+
+.navbar > .container .navbar-brand,
+.navbar > .container-fluid .navbar-brand {
+  margin-left: 25px;
+}
+
+/* RWD for the Top Bar */
+
+@media (max-width: 768px) {
+  .navbar {
+    &.navbar-default {
+      .navbar-nav {
+        @vertical-margin: 10px;
+        @horizontal-margin: 15px;
+
+        margin: @vertical-margin -@horizontal-margin;
+        &.navbar-right {
+          padding-top: 0;
+          &:last-child {
+            margin-right: -@horizontal-margin;
+          }
+        }
+      }
+    }
+
+    @vertical-padding : 5px;
+
+    .navbar-nav > li > a {
+
+      padding-top    : @vertical-padding;
+      padding-bottom : @vertical-padding;
+      &:hover {
+        background-color : darken(@bg-color, 10%);
+      }
+      &:before {
+        display : none;
+      }
+    }
+    &.navbar-scrolled {
+      .navbar-nav > li > a {
+         padding-top    : @vertical-padding;
+         padding-bottom : @vertical-padding;
+      }
+    }
+
+    .small-header-links {
+      display: none;
+    }
+  }
+}

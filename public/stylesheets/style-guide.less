@@ -1,0 +1,444 @@
+@import "colors";
+@import "cross-browser";
+
+* {
+	.box-sizing(content-box);
+}
+
+/* Base text styles */
+
+body {
+	font-size        : 14px;
+	color            : #232323;
+	background-color : #FBFAF7;
+	margin           : 0;
+	line-height      : 1.8em;
+}
+
+
+h1, h2, h3, h4, h5, h6 {
+	color: #232323;
+}
+
+h2, h3, h4, h5, h6 {
+	margin: 24px 0 10px;
+}
+
+h1 {
+	margin-top: 10px;
+}
+
+p, ul, ol, table, dl {
+	margin: 0 0 22px;
+}
+
+ul, ol {
+	&.list {
+		padding: 10px 25px;
+	}
+}
+
+h1,h2, h3 {
+	line-height    : 1.3;
+	display        : block;
+	border-bottom  : 1px solid #ccc;
+	padding-bottom : 5px;
+	font-weight    : 500;
+}
+
+h1 {
+	font-size: 30px;
+}
+
+h2 {
+	font-size: 24px;
+}
+
+h3 {
+	font-size: 18px;
+}
+h4 {
+	font-size: 16px;
+}
+
+h4, h5, h6 {
+	font-weight: 500;
+}
+
+h5 {
+	font-weight: 600;
+	font-size: 12px;
+	margin-top: -10px;
+}
+
+strong {
+	font-weight: 700;
+}
+
+span {
+	&.icon-bar {
+		.box-sizing(border-box);
+	}
+}
+
+.btn, button {
+	outline            : initial;
+	line-height        : 1.2em;
+	font-size          : 12px;
+	-webkit-appearance : button;
+	-moz-appearance    : button;
+	appearance         : button;
+	&:focus {
+		outline: -webkit-focus-ring-color auto 5px
+	}
+	&.navbar-toggle {
+		.box-sizing(border-box);
+	}
+}
+
+code, pre {
+	font-family      : Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal, monospace;
+	color            : #000;
+	font-size        : 12px;
+	padding          : 2px 5px;
+	border           : 1px solid @steel-lightest;
+	border-radius    : 5px;
+	background-color : #eeeeee;
+}
+
+
+/* Wrapper */
+.wrapper {
+	width:960px;
+}
+
+
+/* Header */
+
+header {
+	@border-radius : 4px;
+
+	background-color                   : #171717;
+	color                              : #FDFDFB;
+	width                              : 170px;
+	position                           : fixed;
+	top: 125px;
+	left: 0px;
+	border                             : 1px solid #000;
+	-webkit-border-top-right-radius    : @border-radius;
+	-webkit-border-bottom-right-radius : @border-radius;
+	-moz-border-radius-topright        : @border-radius;
+	-moz-border-radius-bottomright     : @border-radius;
+	border-top-right-radius            : @border-radius;
+	border-bottom-right-radius         : @border-radius;
+	padding                            : 30px 25px;
+	margin                             : 0;
+	-webkit-font-smoothing             : antialiased;
+
+	ul {
+		padding: 0;
+		margin: 30px 0 0 0;
+	}
+
+	li {
+		width: 132px;
+		height: 15px;
+		margin-bottom: 0;
+		line-height: 1em;
+		padding: 6px 6px 6px 7px;
+
+		background: #AF0011;
+		background: -moz-linear-gradient(top, #AF0011 0%, #820011 100%);
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #f8f8f8), color-stop(100%, #dddddd));
+		background: -webkit-linear-gradient(top, #AF0011 0%, #820011 100%);
+		background: -o-linear-gradient(top, #AF0011 0%, #820011 100%);
+		background: -ms-linear-gradient(top, #AF0011 0%, #820011 100%);
+		background: linear-gradient(top, #AF0011 0%, #820011 100%);
+
+		border-radius: 4px;
+		border: 1px solid #0D0D0D;
+
+		-webkit-box-shadow: inset 0px 1px 1px 0 rgba(233,2,38, 1);
+		box-shadow: inset 0px 1px 1px 0 rgba(233,2,38, 1);
+
+		&:hover {
+			background: #C3001D;
+			background: -moz-linear-gradient(top, #C3001D 0%, #950119 100%);
+			background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #f8f8f8), color-stop(100%, #dddddd));
+			background: -webkit-linear-gradient(top, #C3001D 0%, #950119 100%);
+			background: -o-linear-gradient(top, #C3001D 0%, #950119 100%);
+			background: -ms-linear-gradient(top, #C3001D 0%, #950119 100%);
+			background: linear-gradient(top, #C3001D 0%, #950119 100%);
+		}
+	}
+
+}
+
+p.header {
+	font-size: 16px;
+}
+
+h2.header {
+	font-weight: 300;
+	line-height: 1.3em;
+	margin-top: 0;
+}
+
+
+h2.header, a.header, a.name, header a {
+	color: #fff;
+}
+
+a {
+	&.header {
+		text-decoration: underline;
+	}
+	&.name {
+		white-space: nowrap;
+	}
+	&.buttons {
+		background  : url(/images/style-guide/arrow-down.png) no-repeat;
+		font-weight : normal;
+		text-shadow : rgba(0, 0, 0, 0.4) 0 -1px 0;
+		padding     : 2px 2px 2px 22px;
+		height      : 30px;
+		&:hover {
+			color: #fff;
+			text-decoration: none;
+		}
+	}
+	&.github {
+		background: url(/images/style-guide/octocat-small.png) no-repeat 1px;
+	}
+	&.click {
+		-webkit-font-smoothing : antialiased;
+		font-weight            : normal;
+		text-shadow            : rgba(0, 0, 0, 0.4) 0 -1px 0;
+		padding                : 0;
+		height                 : 30px;
+		background             : none;
+	}
+}
+
+
+section {
+	width          : 650px;
+	margin         : 0 auto;
+	padding-bottom : 50px;
+	text-align     : left;
+	&.top {
+		margin-top: 120px;
+	}
+}
+
+.warning {
+	font-weight: bold;
+	font-style: italic;
+	color: #FF0000;
+}
+
+.clip_button {
+	text-align       : center;
+	width            : 150px;
+	margin           : 10px;
+	padding          : 10px;
+	border           : none;
+	color            : #FFF;
+	cursor           : pointer;
+	background-color : #ff4840;
+}
+
+.ql-header {
+	margin-bottom: 15px;
+	margin-top: 5px;
+	border-bottom: 1px solid #3B3E41;
+}
+
+.quick-links {
+	ul {
+		padding      : 0;
+		margin       : 0;
+		padding-left : 30px;
+	}
+	li {
+		list-style-type: circle;
+		width           : 132px;
+		height          : 15px;
+		margin-bottom   : 12px;
+		line-height     : 1em;
+		padding         : 0;
+		background      : none !important;
+		border          : none !important;
+		box-shadow      : none !important;
+		&:hover {
+			text-decoration: none;
+		}
+	}
+}
+
+//Should be centered and not just left by some number of pixels
+#d_debug { 
+	@width: 165px;
+
+	display       : none;
+	position      : fixed;
+	width         : @width;
+	top           : 50%;
+	left          : 50%;
+	background    : #6BC37E; /* Old browsers */
+	border        : 1px solid #41a056;
+	color         : #eeeeee;
+	border-radius : 5px;
+	padding       : 10px 20px;
+	font-size     : 20px;
+	font-weight   : 300;
+	p {
+		margin-bottom: 0;
+	}
+}
+
+/* Color Classes LESS*/
+// Talk to Tomas about changing naming conventions
+// Because if we do change them we'll have to change them everywhere they are used
+/* ------------- */
+
+.red {
+	background-color: @red !important;
+}
+
+.global_bg {
+	background-image : url("/images/style-guide/global-bg.png") !important;
+	border           : 1px solid @steel-lightest!important;
+	color            : #000 !important;
+}
+
+.green {
+	background-color: @green !important;
+}
+
+.white {
+	background-color : @light-font !important;
+	color            : @dark-font;
+}
+
+.off_white {
+	background-color : @grey !important;
+	border           : 1px solid @steel-lightest !important;
+	color            : #000 !important;
+}
+
+.seperator {
+	background-color: @light-seperator !important;
+}
+
+.dark_white {
+	background-color : @dark-font !important;
+	border           : 1px solid @steel-lightest!important;
+	color            : @light-font !important;
+}
+
+.blue {
+	background-color: @blue !important;
+}
+
+.dark_blue {
+	background-color: @dark-blue !important;
+}
+
+.orange {
+	background-color: @orange !important;
+}
+
+.dark_orange {
+	background-color: @dark-orange !important;
+}
+
+.light_orange {
+	background-color: @light-orange !important;
+}
+
+.icon {
+	background-color:  @steel-icon !important;
+}
+
+.line {
+	background-color: @steel-line !important;
+}
+
+.warm {
+	background-color: @steel-warm !important;
+}
+
+.lightest {
+	background-color: @steel-lightest !important;
+}
+
+.light {
+	background-color: @steel-light !important;
+}
+
+.lighter {
+	background-color: @steel-lighter !important;
+}
+
+.normal {
+	background-color: @steel-normal !important;
+}
+
+.dark {
+	background-color: @steel-dark !important;
+}
+
+.darker {
+	background-color: @steel-darker !important;
+}
+
+.darkest {
+	background-color: @steel-darkest !important;
+}
+
+@media (max-width: 1125px) {
+	header {
+		display: none;
+	}
+}
+
+@media (max-width: 960px) {
+
+	div.wrapper {
+		width: auto;
+		margin: 0;
+	}
+
+	section {
+		float    : none;
+		position : static;
+		width    : auto;
+		padding  : 20px 84px 20px 50px;
+		margin   : 0 0 20px;
+		&.top {
+			margin-top: 90px;
+		}
+	}
+}
+
+@media print, screen and (max-width: 720px) {
+	body {
+		word-wrap: break-word;
+	}
+
+	section {
+		padding : 10px 20px 10px 20px;
+		margin  : 0 0 30px;
+	}
+
+	header ul, header p.view {
+		position: static;
+	}
+}
+
+@media print, screen and (max-width: 480px) {
+	.color-container {
+		text-align: center;
+	}
+}

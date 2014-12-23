@@ -1,0 +1,114 @@
+<% include start %>
+<div class="blog">
+	<section class="section blue section-xlarge">
+		<div class="background-media"></div>
+		<div class="background-overlay"></div>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<header class="section-header text-center large-margin-bottom">
+						<h1 class="headline text-medium hairline">Chris' Blog</h1>
+						<p>All Chris' Updates, Thoughts, and Stories</p>
+					</header>
+				</div>
+			</div>
+		</div>
+	</section>
+	<article>
+		<section class="section white section-normal has-top">
+			<div class="decor-top">
+				<% include ./partials/bottom-triangle-angle %>
+			</div>
+			<div class="background-media"></div>
+			<div class="background-overlay"></div>
+			<div class="container">
+				<div class="row medium-margin-bottom">
+					<div class="col-md-12 text-default">
+						<div class="row">
+							<div class="col-md-12">
+								<ul id="categories" class="categories list-unstyled small-margin-bottom">
+									<% blogData.categories.forEach(function (category) { %>
+										<li id="<%= category.replace(/\s/g, '') + 'Filter' %>"
+											<% if (category == "All") { %>
+												class="selected"
+											<% } %>
+										><%= category %></li>
+									<% }); %>
+								</ul>
+							</div>
+						</div>
+						<div class="row">
+							<ul id="listOfBlogs" class="list-unstyled blog-list">
+								<% blogData.blogs.forEach(function (blog) { %>
+									<li class="col-md-4 <%= blog.category %>">
+										<div class="grid-post">
+											<article class="post post-showinfo">
+												<a href="/blog/<%= blog.url %>" title="<%= blog.title %>">
+												<div class="post-media overlay">
+													<%if (blog.postImage != "none") { %>
+														<div class="feature-image">
+															<img src="<%= blog.postImage %>">
+														</div>
+													<% } %>
+												</div>
+												</a>
+												<div class="post-head">
+													<h2 class="post-title"><a title="<%= blog.title %>" href="/blog/<%= blog.url %>"><%= blog.title %></a></h2>
+													<small class="post-author"><%= blog.author.name %></small>
+													<small class="post-date"><%= blog.date %></small>
+													<div class="post-icon">
+														<div class="hex-alt-big-white">
+															<span class="glyphicon glyphicon-<%= blog.icon %>"></span>
+														</div>
+													</div>
+												</div>
+												<div class="post-body">
+													<p><%= blog.partial %></p>
+													<a title="<%= blog.title %>" href="/blog/<%= blog.url %>" class="more-link">Read More</a>
+												</div>
+												<div class="post-extras bordered">
+													<span class="left">
+														<span class="post-comments">
+															<span class="glyphicon glyphicon-user"></span>
+															<a href="/blog/<%= blog.url %>#disqus_thread"></a>
+														</span >
+													</span>
+													<span class="right">
+														<a title="Share On Facebook" target="_blank" onclick="
+															shareWindow(this.href, 'Facebook', '640' , '300')" href="http://www.facebook.com/sharer/sharer.php?u=http://roadmunk.com/blog/<%= blog.url %>">
+															<span class="icon-facebook"></span>
+														</a>
+														<a title="Share On Twitter"
+														   onclick="shareWindow('https://twitter.com/share?url=http://roadmunk.com/blog/<%= blog.url %>&text=<%= blog.title %>', 'Twitter', '640' , '300')"
+														>
+															<span class="icon-twitter"></span>
+														</a>
+														<a title="Share On Linked In" target="_blank"
+														   onclick="rshareWindow(this.href, 'Linked In', '640' , '500')"
+														   href="http://www.linkedin.com/shareArticle?mini=true&url=http://roadmunk.com/blog/<%= blog.url %>&title=<%= blog.title %>&summary=<%= blog.description %>&source=roadmunk.com"
+														>
+															<span class="icon-linkedin"></span>
+														</a>
+														<a title="Share On Google Plus"
+														   onclick="shareWindow(this.href, 'Google Plus', '640' , '500')"
+														   href="https://plus.google.com/share?url=www.roadmunk.com/blog/<%= blog.url %>"
+														>
+															<span class="icon-googleplus"></span>
+														</a>
+													</span>
+												</div>
+											</article>
+										</div>
+									</li>
+								<% }); %>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</article>
+</div>
+<!-- Putting here instead of in scripts due to collsion with the blog page otherwise -->
+<% include ./partials/comment-count %>
+<% include end %>

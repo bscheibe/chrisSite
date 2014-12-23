@@ -1,0 +1,82 @@
+								</div>
+								<%if (banner != false) { %>
+									<a href="/">
+										<img src="/images/<%= bannerURL %>">
+									</a>
+								<% } %>
+								<% if (bioOn != false) { %>
+									<div class="footer row">
+										<div class="col-md-2">
+											<div class="box-round box-huge">
+												<div class="box-dummy"></div>
+												<div class="box-inner">
+													<img src="/images/<%= author.profile_img %>">
+												</div>
+											</div>
+										</div>
+										<div class="col-md-10">
+											<p class="author"><%= author.name %></p>
+											<p class="bio"><%= author.bio %></p>
+										</div>
+									</div>
+								<% } %>
+								<div class="row xsmall-margin-bottom small-margin-top">
+									<div class="col-md-4">
+										<a href="/" class="btn btn-primary btn-lg btn-icon-left" title="Home Page">
+											Home Page
+											<div class="hex-alt hex-alt-big">
+												<span class="glyphicon glyphicon-home"></span>
+											</div>
+										</a>
+									</div>
+									<div class="col-md-4 social-shares">
+										<a title="Share On Facebook" target="_blank" onclick="
+											shareWindow(this.href, 'Facebook', '640' , '300')" href="http://www.facebook.com/sharer/sharer.php?u=http://roadmunk.com/blog/<%= url %>">
+											<span class="icon-facebook"></span>
+										</a>
+										<a title="Share On Twitter" onclick="
+											shareWindow('https://twitter.com/share?url=http://roadmunk.com/blog/<%= url %>&text=<%= title %>', 'Twitter', '640' , '300')
+											">
+											<span class="icon-twitter"></span>
+										</a>
+										<a title="Share On Linked In" target="_blank" onclick="
+											shareWindow(this.href, 'Linked In', '640' , '500')" 
+										href="http://www.linkedin.com/shareArticle?mini=true
+										&url=http://roadmunk.com/blog/<%= url %>
+										&title=<%= title %>
+										&summary=<%= description %>
+										&source=roadmunk.com">
+											<span class="icon-linkedin"></span>
+										</a>
+										<a title="Share On Google Plus" target="_blank" onclick="
+											shareWindow(this.href, 'Google Plus', '640' , '500')"  href="https://plus.google.com/share?url=www.roadmunk.com/blog/<%= url %>">
+											<span class="icon-googleplus"></span>
+										</a>
+									</div>
+									<% if (nextBlogURL) { %>
+										<div class="col-md-4">
+											<a href="/blog/<%= nextBlogURL %>" class="btn btn-primary btn-lg btn-icon-right right" title="Home Page">
+												Next Post
+												<div class="hex-alt hex-alt-big">
+													<span class="glyphicon glyphicon-chevron-right"></span>
+												</div>
+											</a>
+										</div>
+									<% } %>
+								</div>
+								<% include ../partials/disqus-script %>
+							</div>
+						</div>
+					</div>
+				</section>
+			</article>
+		</div>
+		<% include ../partials/go-top %> <!-- includes the content variable layout -->
+
+		<% include ../partials/footer %> <!-- The footer for the site -->
+	</body>
+
+	<% include ../partials/scripts %> <!-- The javascript needed by the site -->
+	<script src="/javascripts/popups.js"></script>
+
+</html>

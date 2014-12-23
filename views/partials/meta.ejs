@@ -1,0 +1,57 @@
+<meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="viewport" content="initial-scale=1.0">
+
+<!-- Basic Meta Data -->
+<title><%= title %></title> 
+<meta name="description" content="<%= description %>" />
+<meta name="author" content="<%= author %>">
+
+<!-- Schema.org markup for Google+ --> 
+<meta itemprop="name" content="<%= title %>"> 
+<meta itemprop="description" content="<%= description %>"> 
+<meta itemprop="image" content="/images/macbook-header-live.png">
+
+<!-- Open Graph data --> 
+<meta property="og:title" content="<%= title %>" /> 
+<meta property="og:type" content="website" /> 
+<meta property="og:url" content="http://chisrayment.com/" />
+<meta property="og:image" content="/images/macbook-header.png" />
+<meta content='500' property='og:image:width' />
+<meta content='500' property='og:image:height' />
+<meta property="og:description" content="<%= description %>" /> 
+<meta property="og:site_name" content="Chris Rayment" />
+<meta content='<%= description %>' name='description' />
+<meta content='Chris, Rayment, Business' name='keywords' />
+<!--<meta property="fb:admins" content="Facebook numberic ID" />--> <!-- If we get a facebook page place ID here -->
+
+<!-- Other META -->
+<link href='/images/macbook-header.png' rel='image_src' />
+<meta content='en_US' property='og:locale' />
+<!--<meta content='brent.scheibelhut' property='fb:admins' />-->
+<!-- %meta{content: "141249602711680", property: "fb:app_id"}/ -->
+<!-- %meta{content: "9ECTySi0_GeTCfDZNmBXsehQoiCybex4metxiksLcRc", name: "google-site-verification"}/ -->
+<link href='https://plus.google.com/109561166639292857885' rel='publisher' />
+
+<!-- Twitter Card data --> 
+<!--<meta name="twitter:card" content="summary_large_image"> 
+<meta name="twitter:site" content="@roadmunkapp"> 
+<meta name="twitter:title" content="<%= title %>"> 
+<meta name="twitter:description" content="<%= description %>"> 
+<meta name="twitter:creator" content="@roadmunkapp">-->
+
+<% if (content != "blogPost") { %>	
+	<!-- Twitter summary card with large image must be at least 280x150px --> 
+	<meta name="twitter:image:src" content="/images/macbook-header-live.png">
+<% } %>
+
+
+<!-- Google Webmaster Tools Site Verification -->
+<meta name="google-site-verification" content="io9BTDf04M3fT1HRH317jbXLicBXZjXtMBE0nb3zl4o" />
+
+<!-- Bing and Yahoo Webmaster Tools Site Verification -->
+<meta name="msvalidate.01" content="9C63FC0190D285B64EC70FB7CB5615C4" />
+
+<!-- Google Authorship and Publisher Markup --> 
+<!--<link rel="author" href="https://plus.google.com/+Roadmunkgoogleplus/posts"/>
+<link rel="publisher" href="https://plus.google.com/+Roadmunkgoogleplus/"/>-->
